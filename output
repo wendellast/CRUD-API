@@ -1,0 +1,6 @@
+{"level":"\u001b[34minfo\u001b[0m","time":"2024-08-28T10:23:12.086-0700","message":"Init CreateUser Controller","journey":"createuser"}
+{"level":"\u001b[34minfo\u001b[0m","time":"2024-08-28T10:23:12.105-0700","message":"Error trying to validate user info ","error":"Key: 'UserResquest.Name' Error:Field validation for 'Name' failed on the 'min' tag"}
+{"level":"\u001b[34minfo\u001b[0m","time":"2024-08-28T10:23:30.516-0700","message":"Init CreateUser Controller","journey":"createuser"}
+{"level":"\u001b[34minfo\u001b[0m","time":"2024-08-28T10:23:30.525-0700","message":"Error trying to validate user info ","error":"Key: 'UserResquest.Name' Error:Field validation for 'Name' failed on the 'required' tag"}
+{"level":"\u001b[34minfo\u001b[0m","time":"2024-08-28T10:23:48.760-0700","message":"Init CreateUser Controller","journey":"createuser"}
+{"level":"\u001b[34minfo\u001b[0m","time":"2024-08-28T10:23:48.796-0700","message":"User created successfully","journey":"createuser"}
