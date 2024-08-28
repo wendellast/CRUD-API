@@ -8,32 +8,34 @@ import (
 )
 
 func NewUserDomain(
-	email, passowrd, name string,
+	email, password, name string,
 	age int8,
-
 ) UserDomainInterface {
-	return &UserDomain{
-		email, passowrd, name, age,
+	return &userDomain{
+		Email:    email,
+		Password: password,
+		Name:     name,
+		Age:      age,
 	}
 }
 
-type UserDomain struct {
+type userDomain struct {
 	Email    string
 	Password string
 	Name     string
 	Age      int8
 }
 
-type UserDomainInterface interface {
-	CreateUser(*UserDomain) *rest_err.RestErr
-	UpdateUser(string) *rest_err.RestErr
-	FindUser(string) (*UserDomain, *rest_err.RestErr)
-	DeleteUser(string) *rest_err.RestErr
-}
-
-func (ud *UserDomain) EncryptPassword() {
+func (ud *userDomain) EncryptPassword() {
 	hash := md5.New()
 	defer hash.Reset()
 	hash.Write([]byte(ud.Password))
 	ud.Password = hex.EncodeToString(hash.Sum(nil))
+}
+
+type UserDomainInterface interface {
+	CreateUser() *rest_err.RestErr
+	UpdateUser(string) *rest_err.RestErr
+	FindUser(string) (*userDomain, *rest_err.RestErr)
+	DeleteUser(string) *rest_err.RestErr
 }
