@@ -7,8 +7,12 @@ import (
 	"github.com/wendellast/CRUD-API/src/configuration/logger"
 	"github.com/wendellast/CRUD-API/src/configuration/validation"
 	"github.com/wendellast/CRUD-API/src/controller/model/request"
-	"github.com/wendellast/CRUD-API/src/controller/model/response"
+	"github.com/wendellast/CRUD-API/src/model"
 	"go.uber.org/zap"
+)
+
+var (
+	UserDomainInterface model.UserDomainInterface
 )
 
 func CreateUser(c *gin.Context) {
@@ -24,14 +28,26 @@ func CreateUser(c *gin.Context) {
 		return
 	}
 
-	response := response.UseResponse{
-		Id:    "test",
-		Email: userResquest.Email,
-		Name:  userResquest.Name,
-		Age:   userResquest.Age,
+	domain := model.NewUserDomain(
+		userResquest.Email,
+		userResquest.Password,
+		userResquest.Name,
+		userResquest.Age,
+	)
+
+	if err := domain.CreateUser(); err != nil {
+		c.JSON(err.Code, err)
+		return
 	}
+
+	// response := response.UseResponse{
+	// 	Id:    "test",
+	// 	Email: userResquest.Email,
+	// 	Name:  userResquest.Name,
+	// 	Age:   userResquest.Age,
+	// }
 
 	logger.Info("User created successfully", zap.String("journey", "createuser"))
 
-	c.JSON(http.StatusOK, response)
+	c.String(http.StatusOK, "")
 }
