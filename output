@@ -5,3 +5,5 @@
 {"level":"\u001b[34minfo\u001b[0m","time":"2024-08-28T10:23:48.760-0700","message":"Init CreateUser Controller","journey":"createuser"}
 {"level":"\u001b[34minfo\u001b[0m","time":"2024-08-28T10:23:48.796-0700","message":"User created successfully","journey":"createuser"}
 {"level":"\u001b[34minfo\u001b[0m","time":"2024-08-28T16:43:07.543-0700","message":"About to start user application"}
+{"level":"\u001b[34minfo\u001b[0m","time":"2024-10-02T21:24:53.162-0300","message":"About to start user application"}
+{"level":"\u001b[34minfo\u001b[0m","time":"2024-10-02T21:25:02.704-0300","message":"About to start user application"}
